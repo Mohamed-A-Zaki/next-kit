@@ -3,6 +3,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  /* custom colors */
+  /* --color-primary: oklch(0.55 0.22 262.88); */
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -137,4 +149,11 @@
   body {
     @apply bg-background text-foreground;
   }
+  .container {
+    @apply mx-auto px-5;
+  }
+}
+
+@layer components {
+  /* ... */
 }
