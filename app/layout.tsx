@@ -1,23 +1,30 @@
+import { ThemeProvider } from "@/design-system/providers/theme-provider";
 import { fonts } from "@/utils/fonts";
 import type { Metadata } from "next";
+import { PropsWithChildren } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "your project name",
-    template: "%s | your project name",
+    default: "next-kit",
+    template: "%s | next-kit",
   },
-  description: "your project description",
+  description: "z-code next-kit start template",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
-      <body className={fonts.roboto.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={fonts.roboto.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
